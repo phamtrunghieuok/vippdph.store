@@ -1,0 +1,16 @@
+[
+  {
+    "id": "app-1",
+    "name": "Telegram Hack Tool",
+    "version": "2.1.0",
+    "platform": "android",
+    "fileSize": "15.4 MB",
+    "description": "Công cụ hỗ trợ quản lý và bảo mật tài khoản Telegram chuyên nghiệp. Tích hợp nhiều tính năng hữu ích.",
+    "adminMessage": "Chúc anh em trải nghiệm vui vẻ! Có lỗi gì báo tôi nhé.",
+    "logoUrl": "/logo.png",
+    "fileUrl": "https://www.mediafire.com",
+    "screenshots": [
+      "/logo.png"
+    ]
+  }
+]
