@@ -61,13 +61,13 @@ function downloadApp(id, fileUrl) {
 }
 
 function openInfo(id) {
-  window.location.href = `/app/?id=${id}`;
+  window.location.href = `app/?id=${id}`;
 }
 
 // ── Fetch & init ───────────────────────────────
 async function init() {
   try {
-    const res = await fetch('/apps.json?v=' + Date.now());
+    const res = await fetch('apps.json?v=' + Date.now());
     if (!res.ok) throw new Error('Lỗi ' + res.status);
     const apps = await res.json();
     renderGrid(apps);
