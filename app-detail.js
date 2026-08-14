@@ -89,7 +89,7 @@ async function init() {
   }
 
   try {
-    const res = await fetch('/apps.json?v=' + Date.now());
+    const res = await fetch('../apps.json?v=' + Date.now());
     if (!res.ok) throw new Error('Lỗi tải file');
     const apps = await res.json();
     const app = apps.find(a => a.id === id);
