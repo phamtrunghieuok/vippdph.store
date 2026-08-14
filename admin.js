@@ -184,7 +184,7 @@ async function loadApps() {
   const list = document.getElementById('admin-list');
   list.innerHTML = '<div class="admin-empty">Đang tải...</div>';
   try {
-    const res = await fetch('/apps.json?v=' + Date.now());
+    const res = await fetch('../apps.json?v=' + Date.now());
     apps = await res.json();
     if (!apps.length) {
       list.innerHTML = '<div class="admin-empty">Chưa có app nào.</div>';
