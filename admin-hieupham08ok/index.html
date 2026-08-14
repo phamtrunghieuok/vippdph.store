@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin — vippdph.store</title>
+  <link rel="icon" href="/logo.png" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+<nav class="navbar">
+  <a class="nav-brand" href="/">
+    <img src="/logo.png" alt="logo" class="nav-logo" />
+    <span class="nav-name">vippdph.store</span>
+  </a>
+  <div class="nav-right">
+    <span class="nav-link" style="color:var(--dim)">Admin</span>
+  </div>
+</nav>
+
+<div class="admin-wrap">
+
+  <!-- Header -->
+  <div class="admin-header">
+    <h1 class="admin-title">Quản lý App</h1>
+    <button class="btn btn-primary btn-sm" onclick="openForm(null)">+ Thêm app</button>
+  </div>
+
+  <!-- App list -->
+  <div class="admin-list" id="admin-list">
+    <div class="admin-empty">Đang tải...</div>
+  </div>
+
+  <!-- Form -->
+  <div id="form-area" style="display:none">
+    <hr class="divider" style="margin-bottom:20px"/>
+
+    <div class="form-section">
+      <div class="form-section-title" id="form-title">Thêm app mới</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="f-name">Tên app *</label>
+          <input type="text" id="f-name" placeholder="VD: My Awesome App" />
+        </div>
+        <div class="form-group">
+          <label for="f-version">Version</label>
+          <input type="text" id="f-version" placeholder="VD: 1.0.0" />
+        </div>
+        <div class="form-group">
+          <label for="f-platform">Nền tảng</label>
+          <select id="f-platform">
+            <option value="android">Android</option>
+            <option value="ios">iOS</option>
+            <option value="windows">Windows</option>
+            <option value="all">Tất cả</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="f-size">Dung lượng (hiển thị)</label>
+          <input type="text" id="f-size" placeholder="VD: 45 MB" />
+        </div>
+        <div class="form-group full">
+          <label for="f-desc">Mô tả</label>
+          <textarea id="f-desc" rows="3" placeholder="Mô tả ngắn về ứng dụng..."></textarea>
+        </div>
+        <div class="form-group full">
+          <label for="f-msg">Lời từ admin</label>
+          <textarea id="f-msg" rows="2" placeholder="Tin nhắn gửi tới người dùng..."></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <div class="form-section-title">Upload file</div>
+      <div class="upload-grid">
+        <!-- Logo -->
+        <div>
+          <label style="margin-bottom:8px;display:block">Logo app</label>
+          <div class="upload-zone" id="zone-logo">
+            <input type="file" id="f-logo" accept="image/*" onchange="handleLogoSelect(this)" />
+            <span class="upload-icon">🖼️</span>
+            <span class="upload-label">Chọn logo</span>
+            <span class="upload-sub">PNG, JPG — tối đa 2MB</span>
+            <span class="upload-preview" id="logo-preview"></span>
+          </div>
+        </div>
+        <!-- MediaFire Download Link -->
+        <div>
+          <label style="margin-bottom:8px;display:block">Link tải ứng dụng (MediaFire)</label>
+          <input type="url" id="f-file-url" placeholder="https://www.mediafire.com/file/..." />
+          <span style="font-size:11px;color:var(--dim);margin-top:4px;display:block">Dán link MediaFire hoặc bất kỳ link tải nào vào đây</span>
+        </div>
+      </div>
+
+      <!-- Screenshots -->
+      <label style="margin-bottom:10px;display:block">Ảnh demo (tối đa 5)</label>
+      <div class="screenshot-upload-row" id="screenshot-slots">
+        <!-- rendered by JS -->
+      </div>
+    </div>
+
+    <div class="form-footer">
+      <button class="btn btn-outline" onclick="cancelForm()">Hủy</button>
+      <button class="btn btn-primary" id="submit-btn" onclick="submitApp()">Publish App</button>
+    </div>
+  </div>
+
+</div>
+
+<div class="toast-container" id="toasts"></div>
+<script src="/admin.js"></script>
+</body>
+</html>
